@@ -71,6 +71,7 @@ const handleKeyDown = (e) => {
   };
 
   return (
+            <Suspense>
     <div className="flex flex-col items-center justify-center min-h-screen bg-black-100">
       <h1 className="text-2xl font-bold mb-4">Subtraction</h1>
       <p className="mb-4">Subtract the following numbers:</p>
@@ -91,11 +92,9 @@ const handleKeyDown = (e) => {
       {isCorrect && (
         <div className='mt-4 space-x-4'>
           {showBackButton &&(
-            <Suspense>
               <Link href={`./`} className="bg-gray-500 text-white p-2 rounded">
               Back
             </Link>
-          </Suspense>
           )}
           {showNextButton && (
             <button
@@ -112,5 +111,6 @@ const handleKeyDown = (e) => {
       {isCorrect && <p className='mt-4 text-xl'>Time taken to answer correctly: {elapsedTime} seconds</p>}
       {showConfetti && <Confetti recycle={false} />}
     </div>
+          </Suspense>
   );
 }

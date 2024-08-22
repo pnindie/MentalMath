@@ -73,6 +73,7 @@ export default function Addition() {
   };
 
   return (
+            <Suspense>
     <div className="flex flex-col items-center justify-center min-h-screen bg-black-100">
       <h1 className="text-2xl font-bold mb-4">Addition</h1>
       <p className="mb-4">Add the following numbers:</p>
@@ -93,11 +94,9 @@ export default function Addition() {
       {isCorrect && (
         <div className='mt-4 space-x-4'>
           {showBackButton &&(
-            <Suspense>
               <Link href={`./`} className="bg-gray-500 text-white p-2 rounded">
               Back
             </Link>
-          </Suspense>
           )}
           {showNextButton && (
             <button
@@ -114,5 +113,6 @@ export default function Addition() {
       {isCorrect && <p className='mt-4 text-xl'>Time taken to answer correctly: {elapsedTime} seconds</p>}
       {showConfetti && <Confetti recycle={false} />}
     </div>
+          </Suspense>
   );
 }
