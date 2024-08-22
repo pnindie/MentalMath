@@ -71,7 +71,7 @@ const handleKeyDown = (e) => {
   };
 
   return (
-            <Suspense>
+            <Suspense fallback={null}>
     <div className="flex flex-col items-center justify-center min-h-screen bg-black-100">
       <h1 className="text-2xl font-bold mb-4">Subtraction</h1>
       <p className="mb-4">Subtract the following numbers:</p>
