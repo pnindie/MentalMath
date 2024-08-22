@@ -9,7 +9,6 @@ export default function Home() {
 
   return (
         <Suspense>
-    // flex flex-col items-center justify-center min-h-screen bg-black-100
     <div className="bg-flowing-gradient bg-200% animate-flowingGradient min-h-screen w-screen flex flex-col items-center justify-center"> 
       <h1 className="text-3xl font-bold mb-8">Reclaim Your Mental Prowess</h1>
       <div className="mb-8">
