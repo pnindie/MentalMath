@@ -8,6 +8,7 @@ export default function Home() {
   const [numberCount, setNumberCount] = useState(2);
 
   return (
+        <Suspense>
     // flex flex-col items-center justify-center min-h-screen bg-black-100
     // <div className="flex flex-col items-center justify-center min-h-screen bg-black-100">
     <div className="bg-flowing-gradient bg-200% animate-flowingGradient min-h-screen w-screen flex flex-col items-center justify-center"> 
@@ -39,15 +40,14 @@ export default function Home() {
       </div>
 
       <div className="space-x-4">
-        <Suspense>
         <Link href={`./addition?count=${numberCount}`} className="px-4 py-2 bg-blue-500 text-white rounded">
           Addition
         </Link>
         <Link href={`./subtraction?count=${numberCount}`} className="px-4 py-2 bg-green-500 text-white rounded">
           Subtraction
         </Link>
-        </Suspense>
       </div>
     </div>
+        </Suspense>
   );
 }
