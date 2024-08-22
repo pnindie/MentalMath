@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Suspense } from 'react'
 
 export default function Home() {
   const [numberCount, setNumberCount] = useState(2);
@@ -38,12 +39,14 @@ export default function Home() {
       </div>
 
       <div className="space-x-4">
+        <Suspense>
         <Link href={`./addition?count=${numberCount}`} className="px-4 py-2 bg-blue-500 text-white rounded">
           Addition
         </Link>
         <Link href={`./subtraction?count=${numberCount}`} className="px-4 py-2 bg-green-500 text-white rounded">
           Subtraction
         </Link>
+        </Suspense>
       </div>
     </div>
   );

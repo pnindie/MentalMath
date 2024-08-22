@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Confetti from 'react-confetti';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 export default function Addition() {
   const searchParams = useSearchParams();
@@ -92,9 +93,11 @@ export default function Addition() {
       {isCorrect && (
         <div className='mt-4 space-x-4'>
           {showBackButton &&(
-            <Link href={`/`} className="bg-gray-500 text-white p-2 rounded">
-            Back
-          </Link>
+            <Suspense>
+              <Link href={`./`} className="bg-gray-500 text-white p-2 rounded">
+              Back
+            </Link>
+          </Suspense>
           )}
           {showNextButton && (
             <button
