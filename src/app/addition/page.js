@@ -73,7 +73,7 @@ export default function Addition() {
   };
 
   return (
-            <Suspense fallback={null}>
+            <Suspense fallback={<div>Loading...</div>}>
     <div className="flex flex-col items-center justify-center min-h-screen bg-black-100">
       <h1 className="text-2xl font-bold mb-4">Addition</h1>
       <p className="mb-4">Add the following numbers:</p>

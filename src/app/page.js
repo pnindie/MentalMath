@@ -8,7 +8,6 @@ export default function Home() {
   const [numberCount, setNumberCount] = useState(2);
 
   return (
-        <Suspense>
     <div className="bg-flowing-gradient bg-200% animate-flowingGradient min-h-screen w-screen flex flex-col items-center justify-center"> 
       <h1 className="text-3xl font-bold mb-8">Reclaim Your Mental Prowess</h1>
       <div className="mb-8">
@@ -45,6 +44,5 @@ export default function Home() {
         </Link>
       </div>
     </div>
-        </Suspense>
   );
 }

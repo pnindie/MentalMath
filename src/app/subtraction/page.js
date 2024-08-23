@@ -34,6 +34,7 @@ export default function Subtraction() {
   function handleSubmit() {
     const difference = numbers.reduce((a, b) => a - b);
     if (parseInt(userInput) === difference) {
+      const currentEndTime = Date.now(); // Get the current timestamp in milliseconds
       const timeDiff = currentEndTime - startTime; // Calculate the difference in milliseconds
       setElapsedTime((timeDiff / 1000).toFixed(2)); // Convert to seconds and format
       console.log(elapsedTime);
@@ -71,7 +72,7 @@ const handleKeyDown = (e) => {
   };
 
   return (
-            <Suspense fallback={null}>
+            <Suspense fallback={<div>Loading...</div>}>
     <div className="flex flex-col items-center justify-center min-h-screen bg-black-100">
       <h1 className="text-2xl font-bold mb-4">Subtraction</h1>
       <p className="mb-4">Subtract the following numbers:</p>
