@@ -1,14 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Confetti from 'react-confetti';
 import Link from 'next/link';
-import { Suspense } from 'react';
 
 export default function Addition() {
-  const searchParams = useSearchParams();
-  const count = parseInt(searchParams.get('count')) || 2;
+  const [count, setCount] = useState(2); // Default to 2 if no count query parameter is provided
   const [numbers, setNumbers] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [isCorrect, setIsCorrect] = useState(false);
@@ -22,8 +19,12 @@ export default function Addition() {
   const nextButtonRef = useRef(null);
 
   useEffect(() => {
-    setNumbers(generateNumbers(count));
-  }, [count]);
+    // Parse the query parameters manually
+    const query = new URLSearchParams(window.location.search);
+    const queryCount = parseInt(query.get('count')) || 2;
+    setCount(queryCount);
+    setNumbers(generateNumbers(queryCount));
+  }, []);
 
   function generateNumbers(count) {
     setStartTime(Date.now()); // Use Date.now() to get the current timestamp in milliseconds
@@ -73,7 +74,6 @@ export default function Addition() {
   };
 
   return (
-            <Suspense fallback={<div>Loading...</div>}>
     <div className="flex flex-col items-center justify-center min-h-screen bg-black-100">
       <h1 className="text-2xl font-bold mb-4">Addition</h1>
       <p className="mb-4">Add the following numbers:</p>
@@ -113,6 +113,5 @@ export default function Addition() {
       {isCorrect && <p className='mt-4 text-xl'>Time taken to answer correctly: {elapsedTime} seconds</p>}
       {showConfetti && <Confetti recycle={false} />}
     </div>
-          </Suspense>
   );
 }
